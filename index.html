@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <title>Modelado y Simulación</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
+  <script src="libs/math.js" type="text/javascript"></script>
+  <script src="libs/plotly.min.js"></script>
+  <script src="script.js"></script>
+
+
+  <link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="cover.css" rel="stylesheet">
+
+</head>
+
+<body class="d-flex h-100 text-white bg-dark">
+  <div class="container">
+
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Navbar</span>
+      </div>
+    </nav> 
+
+    <main class="container">
+      <div class="row">
+        <div class="col-4">
+          <form action="none">
+            <div class="mb-4">
+              <label for="formula">f(x, t)</label>
+              <input type="text" id="formula" class="form-control" value="x + t" required>
+            </div>
+
+            <div class="mb-4">
+              <label for="formula">x0</label>
+              <input type="text" id="x0" class="form-control" value="0" required>
+            </div>
+
+            <div class="mb-4">
+              <label for="formula">t0</label>
+              <input type="text" id="t0" class="form-control" value="0" required>
+            </div>
+
+            <div class="mb-4">
+              <label for="formula">tf</label>
+              <input type="text" id="tf" class="form-control" value="2" required>
+            </div>
+
+            <div class="mb-4">
+              <label for="formula">N</label>
+              <input type="text" id="N" class="form-control" value="10" required>
+            </div>
+
+            <div class="mb-4">
+              <span id="calcular" class="btn btn-secondary fw-bold border-white bg-white">Calcular</span>
+            </div>
+          </form>
+          
+        </div>
+        <div class="col-8">
+          <div id="plot" name="plot"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="mt-auto text-white-50">
+      <p>Modelado y Simulación - UADE</p>
+    </footer>
+  </div>
+</body>
+
+</html>
