@@ -2,12 +2,12 @@
     document.addEventListener("DOMContentLoaded", function () {
 
 
+        // Para que aparezca el gráfico por default.
         Plotly.newPlot('plot', [[{ x: 0, y: 0 }]]);
-
 
         var calcular = document.getElementById("calcular");
 
-        // Inicialización del Calculo 
+        // Click en "Calcular" 
         calcular.onclick = function () {
             var funcionStr = document.getElementById("formula").value;
             var funcion = math.parse(funcionStr);
@@ -30,7 +30,7 @@
         };
     });
 
-    // Función de Euler
+    // Euler
     function euler(funcion, xinicial, tinicial, tfinal, h) {
         var data = { name: 'Euler', x: [], y: [], type: 'scatter' };
 
@@ -51,7 +51,7 @@
         return data;
     }
 
-    // Función de Euler Mejorado
+    // Mejorado
     function eulerMejorado(funcion, xinicial, tinicial, tfinal, h) {
         var data = { name: 'Euler Mejorado', x: [], y: [], type: 'scatter' };
 
@@ -78,7 +78,7 @@
         return data;
     }
 
-    // Función de Runge Kutta
+    // Runge Kutta
     function rungeKutta(funcion, xinicial, tinicial, tfinal, h) {
         var data = { name: 'Runge Kutta', x: [], y: [], type: 'scatter' };
 
@@ -89,7 +89,7 @@
         data.y.push(x);
 
         while (t + h <= tfinal) {
-            m1 = parseFloat(funcion.evaluate({x: x, t:t}).toString()); //evaluar(y, x, funcion);
+            m1 = parseFloat(funcion.evaluate({x: x, t:t}).toString());
             m2 = parseFloat(funcion.evaluate({x: x + m1 * h/2, t:t + h/2}).toString());
             m3 = parseFloat(funcion.evaluate({x: x + m2 * h/2, t:t + h/2}).toString());
             m4 = parseFloat(funcion.evaluate({x: x + m3 * h, t:t + h}).toString());
