@@ -34,6 +34,7 @@
             var rungeKuttaData = rungeKuttaWithTiming(funcion, x0, t0, tf, h);
 
             Plotly.newPlot('plot', [eulerData, eulerMejoradoData, rungeKuttaData], layout);
+            document.querySelector('[data-title="Autoscale"]').click();
         };
     });
 
