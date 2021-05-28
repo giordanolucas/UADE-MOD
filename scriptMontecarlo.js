@@ -3,16 +3,17 @@
     const layout = {
         autosize: true,
         xaxis: {
-            title: 'f(x)'
+            title: 'x'
         },
         yaxis: {
-            title: 'x'
+            title: 'f(x)'
         }
     };
 
     document.addEventListener("DOMContentLoaded", function () {
+
         // Para que aparezca el gráfico por default.
-        Plotly.newPlot('plot', [[{ x: 0, y: 0 }]]);
+        Plotly.newPlot('plot', [{x:[0], y:[0], type: 'scatter'}], layout);
 
         var btnCalcular = document.getElementById("calcular");
 
