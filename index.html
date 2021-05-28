@@ -23,7 +23,7 @@
 
     <nav class="navbar navbar-dark bg-dark">
       <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">Navbar</span>
+        <span class="navbar-brand mb-0 h1">Modelado y Simulación</span>
       </div>
     </nav> 
 
@@ -33,7 +33,7 @@
           <form action="none">
             <div class="mb-4">
               <label for="formula">f(x, t)</label>
-              <input type="text" id="formula" class="form-control" value="x + t" required>
+              <input type="text" id="formula" class="form-control" value="t^2 - 3t + 1" required>
             </div>
 
             <div class="mb-4">
@@ -48,12 +48,33 @@
 
             <div class="mb-4">
               <label for="formula">tf</label>
-              <input type="text" id="tf" class="form-control" value="2" required>
+              <input type="text" id="tf" class="form-control" value="4" required>
             </div>
 
             <div class="mb-4">
               <label for="formula">N</label>
-              <input type="text" id="N" class="form-control" value="10" required>
+              <input type="text" id="N" class="form-control" value="15" required>
+            </div>
+
+            <div class="mb-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="eulerCheck" name="eulerCheck" checked>
+                <label class="form-check-label" for="eulerCheck">
+                  Euler <span class="badge rounded-pill bg-secondary" id="eulerTiming"></span>
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="eulerMejoradoCheck" name="eulerMejoradoCheck" checked>
+                <label class="form-check-label" for="eulerMejoradoCheck">
+                  Euler Mejorado <span class="badge rounded-pill bg-secondary" id="eulerMejoradoTiming"></span>
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="rungeCheck" name="rungeCheck" checked>
+                <label class="form-check-label" for="rungeCheck">
+                  Runge Kutta <span class="badge rounded-pill bg-secondary" id="rungeTiming"></span>
+                </label>
+              </div>
             </div>
 
             <div class="mb-4">
@@ -69,7 +90,7 @@
     </main>
 
     <footer class="mt-auto text-white-50">
-      <p>Modelado y Simulación - UADE</p>
+      <p>Curso 363581 - Modelado y Simulación - UADE</p>
     </footer>
   </div>
 </body>
