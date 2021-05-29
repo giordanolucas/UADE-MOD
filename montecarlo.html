@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="./index.html">Euler / Runge Kutta</a>
+              <a class="nav-link" href="./index.html">Euler / Euler Mejorado / Runge Kutta</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Montecarlo</a>
@@ -50,7 +50,7 @@
           <form action="none">
             <div class="mb-4">
               <label for="formula">f(x)</label>
-              <input type="text" id="formula" class="form-control" value="x^2 - 2x" required>
+              <input type="text" id="funcion" class="form-control" value="x+1" required>
             </div>
 
             <div class="mb-4">
@@ -64,22 +64,13 @@
             </div>
 
             <div class="mb-4">
-              <label for="formula">M</label>
-              <input type="text" id="M" class="form-control" value="2" required>
-            </div>
-
-            <div class="mb-4">
-              <label for="formula">m</label>
-              <input type="text" id="m" class="form-control" value="-2" required>
-            </div>
-
-            <div class="mb-4">
               <label for="formula">N</label>
               <input type="text" id="N" class="form-control" value="10" required>
             </div>
 
             <div class="mb-4">
               <span id="calcular" class="btn btn-secondary fw-bold border-white bg-white">Calcular</span>
+              <span class="badge rounded-pill bg-secondary" id="totalArea"></span>
             </div>
           </form>
           
