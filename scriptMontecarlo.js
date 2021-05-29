@@ -32,13 +32,19 @@
             var cantPositivos = 0;
             var cantNegativos = 0;
 
-            var puntosPositivos = { name: 'Puntos Positivos', x: [], y: [], type: 'scatter', mode: "markers" };
-            var puntosNegativos = { name: 'Puntos Negativos', x: [], y: [], type: 'scatter', mode: "markers" };
+            var puntosPositivos = { name: 'Puntos Positivos', x: [], y: [], type: 'scatter', mode: "markers", marker: { color: 'rgb(40, 193, 80)', size: 5 } };
+            var puntosNegativos = { name: 'Puntos Negativos', x: [], y: [], type: 'scatter', mode: "markers", marker: { color: 'rgb(229, 69, 35)', size: 5 } };
+            var puntosFuera = { name: 'Puntos Fuera', x: [], y: [], type: 'scatter', mode: "markers", marker: { color: 'rgb(200, 200, 200)', size: 5 } };
+
+            var minimo = funcionAnalizada.min < 0 ? funcionAnalizada.min * 1.05 : 0;
+            var maximo = funcionAnalizada.max * 1.05;
+            var lineaMinimo = { name: 'm', x: [a, b], y: [minimo, minimo], type: 'lines', mode: "lines", line: { color: 'rgb(36, 173, 176)', width: 1 } };
+            var lineaMaximo = { name: 'M', x: [a, b], y: [maximo, maximo], type: 'lines', mode: "lines", line: { color: 'rgb(36, 173, 176)', width: 1 } };
 
             for (i = 0; i < n; i++) {
 
                 var xi = math.random(a, b);
-                var yi = math.random(funcionAnalizada.min, funcionAnalizada.max);
+                var yi = math.random(minimo, maximo);
                 var fxi = parseFloat(funcion.evaluate({ x: xi }).toString());
 
                 if(yi > 0 && yi <= fxi) {
@@ -50,11 +56,15 @@
                     puntosNegativos.x.push(xi);
                     puntosNegativos.y.push(yi);
                 }
+                else{
+                    puntosFuera.x.push(xi);
+                    puntosFuera.y.push(yi);
+                }
             }
 
-            var area = ((cantPositivos - cantNegativos) / n) * (b - a) * (funcionAnalizada.max - funcionAnalizada.min);
+            var area = ((cantPositivos - cantNegativos) / n) * (b - a) * (maximo - minimo);
             document.getElementById("totalArea").textContent = "Area Calculada: " + area;
-            Plotly.newPlot('plot', [funcionAnalizada.data, puntosPositivos, puntosNegativos], layout);
+            Plotly.newPlot('plot', [funcionAnalizada.data, puntosPositivos, puntosNegativos, puntosFuera, lineaMinimo, lineaMaximo], layout);
         };
     });
 
