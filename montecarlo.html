@@ -50,7 +50,7 @@
           <form action="none">
             <div class="mb-4">
               <label for="formula">f(x)</label>
-              <input type="text" id="funcion" class="form-control" value="sin(x)" required>
+              <input type="text" id="funcion" class="form-control" value="sin(2x)" required>
             </div>
 
             <div class="mb-4">
@@ -60,18 +60,35 @@
 
             <div class="mb-4">
               <label for="b">b</label>
-              <input type="text" id="b" class="form-control" value="6.29" required>
+              <input type="text" id="b" class="form-control" value="3.1416" required>
             </div>
 
             <div class="mb-4">
               <label for="N">N</label>
-              <input type="text" id="N" class="form-control" value="10" required>
+              <input type="text" id="N" class="form-control" value="100" required>
             </div>
 
             <div class="mb-4">
               <span id="calcular" class="btn btn-secondary fw-bold border-white bg-white">Calcular</span>
-              <span class="badge rounded-pill bg-secondary" id="totalArea"></span>
             </div>
+
+            <div class="mb-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <h3><span class="badge bg-secondary" id="totalArea"></span></h3>
+                </div>
+              </div>
+              <div class="row">
+                <span id="puntosPositivos"></span>
+              </div>
+              <div class="row">
+                <span id="puntosNegativos"></span>
+              </div>
+              <div class="row">
+                <span id="puntosFuera"></span>
+              </div>
+            </div>
+            
           </form>
           
         </div>

@@ -36,8 +36,8 @@
             var puntosNegativos = { name: 'Puntos Negativos', x: [], y: [], type: 'scatter', mode: "markers", marker: { color: 'rgb(229, 69, 35)', size: 5 } };
             var puntosFuera = { name: 'Puntos Fuera', x: [], y: [], type: 'scatter', mode: "markers", marker: { color: 'rgb(200, 200, 200)', size: 5 } };
 
-            var minimo = funcionAnalizada.min < 0 ? funcionAnalizada.min * 1.05 : 0;
-            var maximo = funcionAnalizada.max * 1.05;
+            var minimo = funcionAnalizada.min < 0 ? funcionAnalizada.min * 1.01 : 0;
+            var maximo = funcionAnalizada.max * 1.01;
             var lineaMinimo = { name: 'm', x: [a, b], y: [minimo, minimo], type: 'lines', mode: "lines", line: { color: 'rgb(36, 173, 176)', width: 1 } };
             var lineaMaximo = { name: 'M', x: [a, b], y: [maximo, maximo], type: 'lines', mode: "lines", line: { color: 'rgb(36, 173, 176)', width: 1 } };
 
@@ -62,15 +62,21 @@
                 }
             }
 
-            var area = ((cantPositivos - cantNegativos) / n) * (b - a) * (maximo - minimo);
-            document.getElementById("totalArea").textContent = "Area Calculada: " + area;
             Plotly.newPlot('plot', [funcionAnalizada.data, puntosPositivos, puntosNegativos, puntosFuera, lineaMinimo, lineaMaximo], layout);
+            document.querySelector('[data-title="Autoscale"]').click();
+
+            var area = ((cantPositivos - cantNegativos) / n) * (b - a) * (maximo - minimo);
+            document.getElementById("totalArea").textContent = "Area Calculada: " + area.toFixed(3);
+            document.getElementById("puntosPositivos").textContent = "Puntos Positivos: " + puntosPositivos.x.length;
+            document.getElementById("puntosNegativos").textContent = "Puntos Negativos: " + puntosNegativos.x.length;
+            document.getElementById("puntosFuera").textContent = "Puntos Fuera: " + puntosFuera.x.length;
+
         };
     });
 
     function analizarFuncion(funcion, a, b) {
         var data = { name: 'f(x)', x: [], y: [], type: 'scatter' };
-        var nk = (b - a) * 100; //TODO Mejorar
+        var nk = (b - a) * 100;
         var min, max;
         var i;
 
@@ -96,7 +102,3 @@
 
 
 })(document, window);
-
-
-
-// n estrella = 50 (es la cant de x chiquitos que tiro)
