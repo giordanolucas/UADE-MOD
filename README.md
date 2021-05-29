@@ -12,6 +12,9 @@ Aplicación: https://giordanolucas.github.io/UADE-MOD/
 
 Para utilizar la aplicación solo tiene que entrar al link de arriba, elegir las opciones "Euler/ Euler Mejorado / Runge Kutta" o "Montecarlo", completar los datos solicitados y presionar Calcular. 
 
+estructuras de datos soportadas :
+
+{ matrix - integer - string - float }
 
 
 
