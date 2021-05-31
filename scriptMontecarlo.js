@@ -66,7 +66,7 @@
             document.querySelector('[data-title="Autoscale"]').click();
 
             var area = ((cantPositivos - cantNegativos) / n) * (b - a) * (maximo - minimo);
-            document.getElementById("totalArea").textContent = "Area Calculada: " + area.toFixed(3);
+            document.getElementById("totalArea").textContent = "Resultado: " + area.toFixed(3);
             document.getElementById("puntosPositivos").textContent = "Puntos Positivos: " + puntosPositivos.x.length;
             document.getElementById("puntosNegativos").textContent = "Puntos Negativos: " + puntosNegativos.x.length;
             document.getElementById("puntosFuera").textContent = "Puntos Fuera: " + puntosFuera.x.length;
